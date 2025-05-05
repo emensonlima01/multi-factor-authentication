@@ -11,7 +11,7 @@ import type {
 
 // Configuração do axios com a URL base da API
 const api = axios.create({
-  baseURL: 'http://localhost:5073/api', // URL da API .NET
+  baseURL: import.meta.env.VITE_API_URL, // URL da API .NET vinda do .env
   headers: {
     'Content-Type': 'application/json'
   }
