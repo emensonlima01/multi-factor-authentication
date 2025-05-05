@@ -24,22 +24,21 @@ const MFASetup = ({ qrCodeUrl, secret, onError }: MFASetupProps) => {
     }, [qrCodeUrl, onError]);
 
     return (
-        <div className="flex flex-col items-center">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+        <div className="flex flex-col items-center w-full">
+            <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">
                 Configure a Autenticação de Dois Fatores
             </h3>
 
-            <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+            <div className="mb-4 p-4 bg-gray-100 rounded-lg flex justify-center">
                 {imageError ? (
-                    <div className="w-[200px] h-[200px] flex items-center justify-center bg-gray-200 text-gray-500">
+                    <div className="w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] flex items-center justify-center bg-gray-200 text-gray-500 text-center">
                         Erro ao carregar QR Code
                     </div>
                 ) : isBase64Image ? (
                     <img
                         src={qrCodeUrl}
                         alt="QR Code para autenticação"
-                        width={200}
-                        height={200}
+                        className="w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px]"
                         onError={() => {
                             setImageError(true);
                             if (onError) onError("Falha ao carregar a imagem do QR Code.");
@@ -53,11 +52,12 @@ const MFASetup = ({ qrCodeUrl, secret, onError }: MFASetupProps) => {
                         fgColor={"#000000"}
                         level={"L"}
                         includeMargin={false}
+                        className="w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px]"
                     />
                 )}
             </div>
 
-            <div className="text-sm text-gray-600 mb-4 max-w-md text-center">
+            <div className="text-sm text-gray-600 mb-4 w-full px-2 text-center">
                 <p className="mb-2">
                     Escaneie o QR Code acima com um aplicativo autenticador como Google Authenticator,
                     Microsoft Authenticator ou Authy para configurar a autenticação de dois fatores.
@@ -66,12 +66,12 @@ const MFASetup = ({ qrCodeUrl, secret, onError }: MFASetupProps) => {
                 {secret && (
                     <div className="mt-4">
                         <p className="font-semibold mb-1">Ou insira este código manualmente:</p>
-                        <code className="bg-gray-200 px-2 py-1 rounded">{secret}</code>
+                        <code className="bg-gray-200 px-2 py-1 rounded break-all">{secret}</code>
                     </div>
                 )}
             </div>
 
-            <div className="text-xs text-gray-500 text-center max-w-md">
+            <div className="text-xs text-gray-500 text-center w-full px-2">
                 <p>
                     A autenticação de dois fatores adiciona uma camada extra de segurança à sua conta.
                     Após configurar, você precisará fornecer um código de verificação gerado pelo aplicativo

@@ -181,17 +181,17 @@ const RecoveryPasswordPage = () => {
 
             case RecoveryStep.MFA_SETUP:
                 return (
-                    <div className="space-y-6">
-                        <div className="text-center mb-4">
-                            <h3 className="text-lg font-semibold">Configurar Nova Autenticação</h3>
-                            <p className="text-sm text-gray-600">
+                    <div className="space-y-4 sm:space-y-6">
+                        <div className="text-center mb-2 sm:mb-4">
+                            <h3 className="text-base sm:text-lg font-semibold">Configurar Nova Autenticação</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 px-2">
                                 Escaneie o QR Code abaixo com seu aplicativo autenticador
                             </p>
                         </div>
 
                         <MFASetup qrCodeUrl={qrCodeUrl} />
 
-                        <div className="text-center mt-6">
+                        <div className="text-center mt-4 sm:mt-6">
                             <Button
                                 onClick={() => setCurrentStep(RecoveryStep.MFA_VERIFICATION)}
                                 fullWidth
@@ -204,10 +204,10 @@ const RecoveryPasswordPage = () => {
 
             case RecoveryStep.MFA_VERIFICATION:
                 return (
-                    <div className="space-y-6">
-                        <div className="text-center mb-4">
-                            <h3 className="text-lg font-semibold">Verificação do Autenticador</h3>
-                            <p className="text-sm text-gray-600">
+                    <div className="space-y-4 sm:space-y-6">
+                        <div className="text-center mb-2 sm:mb-4">
+                            <h3 className="text-base sm:text-lg font-semibold">Verificação do Autenticador</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 px-2">
                                 Digite o código exibido no seu aplicativo autenticador
                             </p>
                         </div>
@@ -231,8 +231,8 @@ const RecoveryPasswordPage = () => {
                 return (
                     <form onSubmit={resetFormik.handleSubmit} className="space-y-4">
                         <div className="text-center mb-4">
-                            <h3 className="text-lg font-semibold">Redefinir Senha</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="text-base sm:text-lg font-semibold">Redefinir Senha</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 px-2">
                                 Digite sua nova senha
                             </p>
                         </div>
@@ -273,10 +273,10 @@ const RecoveryPasswordPage = () => {
 
             case RecoveryStep.SUCCESS:
                 return (
-                    <div className="text-center space-y-6">
-                        <div className="text-green-500 mb-4">
+                    <div className="text-center space-y-4 sm:space-y-6">
+                        <div className="text-green-500 mb-2 sm:mb-4">
                             <svg
-                                className="mx-auto h-12 w-12"
+                                className="mx-auto h-10 w-10 sm:h-12 sm:w-12"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -291,13 +291,13 @@ const RecoveryPasswordPage = () => {
                             </svg>
                         </div>
 
-                        <h3 className="text-lg font-semibold">Senha Redefinida com Sucesso!</h3>
+                        <h3 className="text-base sm:text-lg font-semibold">Senha Redefinida com Sucesso!</h3>
 
-                        <p className="text-sm text-gray-600">
+                        <p className="text-xs sm:text-sm text-gray-600 px-2">
                             Sua senha foi redefinida. Agora você pode fazer login com sua nova senha.
                         </p>
 
-                        <div className="mt-6">
+                        <div className="mt-4 sm:mt-6">
                             <Button
                                 onClick={() => navigate('/login')}
                                 fullWidth
@@ -315,11 +315,11 @@ const RecoveryPasswordPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-            <div className="max-w-md w-full">
-                <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800">Recuperação de Senha</h1>
-                    <p className="text-gray-600">Recupere o acesso à sua conta</p>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-3 py-6 sm:px-6 md:px-8">
+            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
+                <div className="text-center mb-6 sm:mb-8">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Recuperação de Senha</h1>
+                    <p className="text-sm sm:text-base text-gray-600">Recupere o acesso à sua conta</p>
                 </div>
 
                 {errorMessage && (

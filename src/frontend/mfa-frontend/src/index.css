@@ -16,9 +16,11 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
+  min-width: 280px;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
