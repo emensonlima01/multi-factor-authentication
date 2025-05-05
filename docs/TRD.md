@@ -92,9 +92,8 @@ Este documento traduz o **PRD (Documento de Requisitos de Produto)** em especifi
   ```
   src/
     Controllers/      -> Controladores de API (AuthController, UserController)
-    Models/           -> Modelos de dados (User, OTP, etc.)
-    Services/         -> Lógica de negócios (AuthService, OTPService)
-    Repositories/     -> Interação com o MongoDB (UserRepository, OTPRepository)
+    Services/         -> Lógica de negócios e acesso a dados (AuthService, OTPService, UserRepository)
+    Models/           -> Modelos de dados (User, OTP, etc.) e DTOs
     Utils/            -> Funções utilitárias (ex.: geração de OTP, hashing de senhas)
     Middleware/       -> Middleware para autenticação e tratamento de erros
   ```
