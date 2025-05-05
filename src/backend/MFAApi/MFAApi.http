@@ -1,0 +1,6 @@
+@MFAApi_HostAddress = http://localhost:5073
+
+GET {{MFAApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
