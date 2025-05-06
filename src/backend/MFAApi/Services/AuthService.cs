@@ -176,6 +176,15 @@ public class AuthService
 
             // Validar o código OTP
             bool isOtpValid = _otpService.ValidateOtp(user.MfaSecret, request.OtpCode);
+
+            // Verificar se o código OTP já foi utilizado
+            bool otpAlreadyUsed = await _dbService.HasOtpBeenUsed(user.Id, request.OtpCode);
+            if (otpAlreadyUsed)
+            {
+                _logger.LogWarning("Tentativa de reutilização de OTP para usuário: {Email}, Código: {OtpCode}", user.Email, request.OtpCode);
+                throw new UnauthorizedAccessException("Código OTP já utilizado. Gere um novo código.");
+            }
+
             if (!isOtpValid)
             {
                 _logger.LogWarning("Código OTP inválido para usuário: {Email}", user.Email);

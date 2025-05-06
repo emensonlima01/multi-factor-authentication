@@ -101,6 +101,15 @@ public class MongoDBService
             .FirstOrDefaultAsync();
     }
 
+    public async Task<bool> HasOtpBeenUsed(string userId, string otpCode)
+    {
+        return await _otpLogsCollection
+            .Find(o => o.UserId == userId &&
+                      o.OtpCode == otpCode &&
+                      o.Validated == true) // Verifica se já existe um log validado com este código
+            .AnyAsync();
+    }
+
     public async Task MarkOtpAsValidated(string id)
     {
         var update = Builders<Models.OtpLog>.Update.Set(o => o.Validated, true);
